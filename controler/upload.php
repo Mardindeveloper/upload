@@ -1,6 +1,6 @@
 <?php
-require_once '../config/db.php';
-require_once 'function.php';
+require '../config/db.php';
+require '../helper/function.php';
 
 if (isset($_POST['send'])) {
     $id_user = $_POST['id_user'];
