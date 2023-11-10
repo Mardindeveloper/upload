@@ -4,13 +4,7 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "iranian-sans";
-  src: url("font/iranian-sans.ttf") format("truetype");
-}
-
 body {
-  font-family: "iranian-sans", sans-serif !important;
   font-size: 24px;
   background-color: #c1bdba;
 }

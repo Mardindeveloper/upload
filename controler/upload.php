@@ -1,26 +1,25 @@
 <?php
-require '../config/db.php';
-require '../helper/function.php';
+require '../config/config.php';
 
 if (isset($_POST['send'])) {
     $id_user = $_POST['id_user'];
     $title = $_POST['title'];
     $description = $_POST['description'];
     if (isset($_FILES['file'])) {
-        $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif','jfif');
+        $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif', 'jfif');
         $file_extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
 
         if (in_array($file_extension, $allowed_extensions)) {
             $uploadDir = '../upload/';
             $originalFileName = $_FILES['file']['name'];
-            $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION); //جدا کردن پسوند فایل از نام
-            $guid = uniqid(); // شناسه یکتا جهانی
+            //جدا کردن پسوند فایل از نام
+            $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+            // شناسه یکتا جهانی
+            $guid = uniqid();
             $newFileName = $guid . '.' . $fileExtension;
             $tmp = $_FILES['file']['tmp_name'];
 
-            $sql = "INSERT INTO images (`id_user`, `title`, `name_img`, `description`) VALUES ('$id_user', '$title', '$newFileName', '$description')";
-            $stmt = $db->prepare($sql);
-            $result = $stmt->execute();
+            $result = InsertUploadData($db, $id_user, $title, $newFileName, $description);
 
             if ($result) {
                 if (move_uploaded_file($tmp, $uploadDir . $newFileName)) {

@@ -29,6 +29,13 @@ function format_not_allowed()
 function break_login()
 {
     $my_variable = "The username or password is incorrect";
-    header("Location: login.php?my_variable=" . urlencode($my_variable));
+    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
+    exit();
+}
+
+function registr_failed()
+{
+    $my_variable = "Registration failed.";
+    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
     exit();
 }
