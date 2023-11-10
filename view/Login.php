@@ -33,7 +33,7 @@ function LoginPage()
         <div id="signup">
           <h1>Sign Up</h1>
 
-          <form action="controler/register_process.php" method="post">
+          <form action="controllers/register_process.php" method="post">
 
             <div class="top-row">
               <div class="field-wrap">
@@ -81,7 +81,7 @@ function LoginPage()
         <div id="login">
           <h1>Welcome Back!</h1>
 
-          <form action="controler/login_process.php" method="post">
+          <form action="controllers/login_process.php" method="post">
 
             <div class="field-wrap">
               <label>

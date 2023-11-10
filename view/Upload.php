@@ -34,7 +34,7 @@ function formUploader($idUser, $userName, $db)
         <section class="main">
             <div class="upload">
                 <p>Upload Image</p>
-                <form action="controler/upload.php" method="post" enctype="multipart/form-data" name="form">
+                <form action="controllers/upload.php" method="post" enctype="multipart/form-data" name="form">
                     <input type="hidden" name="id_user" value="<?= $idUser ?>">
                     <label for="name">Title Image</label>
                     <input type="text" name="title" id="name">
