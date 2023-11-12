@@ -91,7 +91,16 @@ function formUploader($idUser, $userName, $db)
                                 <?= $row['description'] ?>
                             </td>
                             <td>
-                                <img src="upload/<?= $row['name_img'] ?>" alt="<?= $row['title'] ?>">
+                                <?php
+                                    $pathImage = "upload/" . $row['name_img'];
+                                    if(file_exists($pathImage)) {
+                                        ?>
+                                        <img src="<?= $pathImage ?>" alt="<?= $row['title'] ?>">
+                                        <?php
+                                    } else {
+                                        echo "عکس یافت نشد!!!";
+                                    }
+                                ?>
                             </td>
                         </tr>
                         <?php
