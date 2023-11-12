@@ -37,10 +37,10 @@ function formUploader($idUser, $userName, $db)
                 <form action="controllers/upload.php" method="post" enctype="multipart/form-data" name="form">
                     <input type="hidden" name="id_user" value="<?= $idUser ?>">
                     <label for="name">Title Image</label>
-                    <input type="text" name="title" id="name">
+                    <input type="text" name="title" require>
                     <label for="description">Description</label>
                     <textarea name="description" id="description" maxlength="300"
-                        title="be less than 300 characters"></textarea>
+                        title="be less than 300 characters" require></textarea>
                     <div class="submit">
                         <label class="custom-file-upload">
                             <input type="file" class="file" name="file" id="formFile">

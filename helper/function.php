@@ -1,41 +1,65 @@
 <?php
-function success_upload()
+function success_upload($message)
 {
-    $my_variable = "File upload was successful";
-    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
+    header("Location: ../index.php?my_variable=" . urlencode($message));
+    $pathFileLogs = "../logs/logs_upload.txt";
+    $textLogs = $message . " " . date("Y-m-d h:i:s", time()) . "\n";
+    $openFileLogs = fopen($pathFileLogs, 'a+');
+    fwrite($openFileLogs, $textLogs);
+    fclose($openFileLogs);
     exit();
 }
-function break_upload()
+function break_upload($message)
 {
-    $my_variable = "File upload failed";
-    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
-    exit();
-}
-
-function file_not_uploaded()
-{
-    $my_variable = "File not uploaded";
-    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
-    exit();
-}
-
-function format_not_allowed()
-{
-    $my_variable = "File format not allowed!";
-    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
+    header("Location: ../index.php?my_variable=" . urlencode($message));
+    $pathFileLogs = "../logs/logs_upload.txt";
+    $textLogs = $message . " " . date("Y-m-d h:i:s", time()) . "\n";
+    $openFileLogs = fopen($pathFileLogs, 'a+');
+    fwrite($openFileLogs, $textLogs);
+    fclose($openFileLogs);
     exit();
 }
 
-function break_login()
+function file_not_uploaded($message)
 {
-    $my_variable = "The username or password is incorrect";
-    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
+    header("Location: ../index.php?my_variable=" . urlencode($message));
+    $pathFileLogs = "../logs/logs_upload.txt";
+    $textLogs = $message . " " . date("Y-m-d h:i:s", time()) . "\n";
+    $openFileLogs = fopen($pathFileLogs, 'a+');
+    fwrite($openFileLogs, $textLogs);
+    fclose($openFileLogs);
     exit();
 }
 
-function registr_failed()
+function format_not_allowed($message)
 {
-    $my_variable = "Registration failed.";
-    header("Location: ../index.php?my_variable=" . urlencode($my_variable));
+    header("Location: ../index.php?my_variable=" . urlencode($message));
+    $pathFileLogs = "../logs/logs_upload.txt";
+    $textLogs = $message . " " . date("Y-m-d h:i:s", time()) . "\n";
+    $openFileLogs = fopen($pathFileLogs, 'a+');
+    fwrite($openFileLogs, $textLogs);
+    fclose($openFileLogs);
+    exit();
+}
+
+function break_login($message)
+{
+    header("Location: ../index.php?my_variable=" . urlencode($message));
+    $pathFileLogs = "../logs/logs_login.txt";
+    $textLogs = $message . " " . date("Y-m-d h:i:s", time()) . "\n";
+    $openFileLogs = fopen($pathFileLogs, 'a+');
+    fwrite($openFileLogs, $textLogs);
+    fclose($openFileLogs);
+    exit();
+}
+
+function registr_failed($message)
+{
+    header("Location: ../index.php?my_variable=" . urlencode($message));
+    $pathFileLogs = "../logs/logs_login.txt";
+    $textLogs = $message . " " . date("Y-m-d h:i:s", time()) . "\n";
+    $openFileLogs = fopen($pathFileLogs, 'a+');
+    fwrite($openFileLogs, $textLogs);
+    fclose($openFileLogs);
     exit();
 }
