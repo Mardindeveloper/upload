@@ -98,7 +98,7 @@ function formUploader($idUser, $userName, $db)
                                         <img src="<?= $pathImage ?>" alt="<?= $row['title'] ?>">
                                         <?php
                                     } else {
-                                        echo "عکس یافت نشد!!!";
+                                        echo "Photo not found!!";
                                     }
                                 ?>
                             </td>
